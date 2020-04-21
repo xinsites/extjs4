@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>流程管理->流程任务配置</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+<div class="details-info">
+    <div style="padding-left: 20px; line-height: 180%; color: Blue;">
+        1.当一个任务有多个分支时，并且这个任务是分签结点、分签条件结点、会签分签结点时需要用到路径属性
+        <br/>
+        2.当一个任务需要根据申请人的职务走不同的审批路径时，需要用到路径属性的“任务执行人”
+        <br/>
+        3.当一个任务只有一条路径时，“默认连线”就可以
+        <br/>
+        4、默认连线“分支”返回值都为真，表示必需执行；
+        <br/>
+        5、当路径属性是“任务执行人”时，需要根据路径的任务执行人（开始结点是申请人），判断路径走向
+        <br/>
+        6、当有多条分支时，按优先级从高到低获取返回值为真的“分支”，1的优先级最高；
+        <br/>
+        7、sql语句定义中，#IdLeaf：表示申请表主表、1对1关系表主键值及1对多关系表的外键值
+        <br/>
+        8、当判断比较复杂时，可以自定义方法名称(继承BasePath类)，自己编写业务处理方法，可以获取到的信息有status_id、line_id、tk_id及审批表单信息；
+        <br/>
+        9.“表达式”与“Sql语句”执行的结果数大于零则为真。
+        <br/>
+        10.自定义方法调用函数有两种方法：
+        <div style="padding-left: 20px; line-height: 180%; color: Blue; ">
+            1.Bean调用示例：testPath.testTask(#task_id, #alloc_id, "admin")
+            <br/>
+            2.Class类调用示例：com.xinsite.flow.listener.task_path.TestPath("admin")
+            <br/>
+            3.参数常量：字符串，布尔类型，长整型，浮点型，整型
+            <br/>
+            4.参数变量：#task_id_from，#task_id_to，#release_id，#line_id，#status_id，#user_id
+            <br/>
+            <div style="padding-left: 12px; line-height: 180%; color: red;">
+                1)、#task_id_from：开始任务结点Id，wd_task表主键
+                <br/>
+                2)、#task_id_to：结束任务结点Id，wd_task表主键
+                <br/>
+                3)、#release_id：流程任务发布Id，wd_release表主键
+                <br/>
+                4)、#line_id：任务线路径Id，wd_task_line表主键
+                <br/>
+                5)、#status_id：流程任务状态Id，wd_task_status表主键
+                <br/>
+                6)、#user_id：当前登录用户Id，sys_user表主键
+            </div>
+            5.函数返回布尔值，返回true表示流程走此路径
+            <br/>
+        </div>
+        <br/>
+    </div>
+</div>
+</body>
+</html>

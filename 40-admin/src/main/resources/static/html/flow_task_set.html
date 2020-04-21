@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>流程管理->流程任务配置</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+<div class="details-info">
+    1、各定义说明：
+    <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+        a.流程对象：申请的表单对象，可以是一个表或者一个主表多个副表
+        <br/>
+        b.流程栏目：点击的栏目是一个申请流程，需要申请人填写表单，提交后<br/>经一系列的审批过程，需要配置一个流程对象
+        <br/>
+        c.流程任务：审批人审批环节的定制，及审批表单的定制
+        <br/>
+        d.一个流程对象可以配置到多个流程栏目，一个流程栏目可以配置多个流程任务
+        <br/>
+    </div>
+    <br/>
+    2、一个流程对象可以配置多个流程任务，主要作用如下：
+    <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+        a.如果一个流程对象配置到两个栏目，那么两个栏目的流程申请<br/> 可以配置不同的流程任务
+        <div style="padding-left: 20px; color: Red; line-height: 200%;">
+            这两个栏目的申请表单是一样的，但流程任务不一样
+        </div>
+        b.一个流程对象配置到一个栏目，这个栏目有多个流程任务
+        <div style="padding-left: 20px; color: Red; line-height: 200%;">
+            申请人根据优先级，只能匹配到一个流程任务执行
+        </div>
+        c.混合使用，a与b
+        <br/>
+    </div>
+    <br/>
+    3、审批结点“其他配置”注意事项：
+    <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+        a.通过策略中设置了“审批意见字段”，在“审批表单”选项卡中，生成页面后，该字段后有一个选择框
+        <br/>
+        b.修改表单设置后，该环节的审批人可以修改申请人的表单信息，修改信息是即时修改，没有保存按钮
+    </div>
+    <br/>
+    4、其他注意事项：
+    <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+        a.一个流程任务只有一个“开始结点”，多个“任务结点”，一个“结束结点”
+        <br/>
+        b.设置流程图，必须将任务点全部定义好，在“设置流程图”中，只能定义任务路径，及路径属性
+        <br/>
+        c.流程图发布，将正式用于流程申请，申请流程后，流程任务将匹配最后一版发布的“流程图”
+        <br/>
+    </div>
+</div>
+</body>
+</html>

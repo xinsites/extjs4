@@ -1,0 +1,273 @@
+HTML {
+    SCROLLBAR-FACE-COLOR: #DFE8F6;
+    SCROLLBAR-HIGHLIGHT-COLOR: #DFE8F6;
+    SCROLLBAR-ARROW-COLOR: #15428B;
+    SCROLLBAR-TRACK-COLOR: #DEECFD;
+    SCROLLBAR-DARKSHADOW-COLOR: #DEECFD;
+    SCROLLBAR-3DLIGHT-COLOR: #99BBE8;
+    SCROLLBAR-SHADOW-COLOR: #99BBE8;
+}
+
+.x-mask-msg-text {
+    padding: 5px 5px 5px 20px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+
+.accordion_item {
+    margin: 1px 0 0 0;
+    border-bottom: solid 1px #C0C0C0;
+}
+
+.footer_bottom { /*��ҳ�ײ���ʽ*/
+    text-align: center;
+    line-height: 20px;
+    color: White;
+}
+
+/*����list��radioѡ���*/
+.x-grid-radiocolumn {
+    width: 15px;
+    height: 15px;
+    background: url(img/radio.png) 0 0 no-repeat;
+}
+
+/* line 17, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+.x-item-disabled .x-grid-radiocolumn {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+    opacity: 0.3;
+}
+
+/* line 22, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+.x-grid-radiocolumn-checked {
+    background-position: 0 -15px;
+}
+
+/*����list��radioѡ���*/
+
+.check-item {
+    margin-right: 6px;
+    display: inline-block;
+    position: relative;
+}
+
+.check-item label {
+    line-height: 12px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.check-item input[type="checkbox"] {
+    margin-right: 4px;
+    width: 12px;
+    height: 12px;
+    visibility: hidden;
+}
+
+/* 设计新的checkbox，位置 */
+.check-item label:BEFORE {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* 点击初始的checkbox，将新的checkbox关联起来 */
+.check-item input[type="checkbox"]:checked + label:BEFORE {
+    content: '\2713';
+    display: block;
+    line-height: 12px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bolder;
+    background-color: #3892D3;
+    color: #ffffff;
+}
+
+.check-item-disabled label {
+    color: #333 !important;
+}
+
+.check-item-disabled label:BEFORE {
+    border: 1px solid #d2d2d2;
+}
+
+.check-item-disabled input[type="checkbox"]:checked + label:BEFORE {
+    border: 1px solid #d2d2d2;
+    background-color: #d2d2d2;
+}
+
+/* 设计新的checkbox，用图片代替 */
+.check-img {
+    margin-right: 6px;
+    display: inline-block;
+    position: relative;
+}
+
+.check-img label {
+    line-height: 15px;
+    vertical-align: text-top;
+    cursor: pointer;
+}
+
+.check-img input[type="checkbox"] {
+    margin-right: 4px;
+    width: 15px;
+    height: 15px;
+    visibility: hidden;
+}
+
+/* 设计新的checkbox，位置 */
+.check-img label:BEFORE {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: 15px;
+    height: 15px;
+    background-image: url('img/checkbox.png');
+    background-position: 0px 0px;
+    cursor: pointer;
+}
+
+/* 点击初始的checkbox，将新的checkbox关联起来 */
+.check-img input[type="checkbox"]:checked + label:BEFORE {
+    content: '';
+    display: block;
+    line-height: 15px;
+    vertical-align: middle;
+    background-position: 0px 15px;
+}
+
+.check-img-disabled label {
+    color: #333 !important;
+}
+
+.check-img-disabled label:BEFORE {
+    background-position: 0px 0px;
+}
+
+.check-img-disabled input[type="checkbox"]:checked + label:BEFORE {
+    background-position: 0px 15px;
+}
+
+/* 设计新的radio */
+.radio-item {
+    margin-right: 6px;
+    display: inline-block;
+    position: relative;
+}
+
+.radio-item label {
+    line-height: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.radio-item input[type="radio"] + label::before {
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+    border: 1px solid #428bca;
+    line-height: 14px;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"]:checked + label::before {
+    width: 6px;
+    height: 6px;
+    background-color: #428bca;
+    background-clip: content-box;
+    padding: 4px;
+}
+
+.radio-item-disabled label {
+    color: #333 !important;
+}
+
+.radio-item-disabled input[type="radio"] + label::before {
+    border: 1px solid #a2a2a2;
+}
+
+.radio-item-disabled input[type="radio"]:checked + label::before {
+    background-color: #a2a2a2;
+}
+
+/* 设计新的radio，用图片代替 */
+.radio-img {
+    margin-right: 6px;
+    display: inline-block;
+    position: relative;
+}
+
+.radio-img label {
+    line-height: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.radio-img input[type="radio"] {
+    margin-right: 3px;
+    width: 15px;
+    height: 15px;
+    visibility: hidden;
+}
+
+/* 设计新的checkbox，位置 */
+.radio-img label:BEFORE {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 4px;
+    width: 15px;
+    height: 15px;
+    background-image: url('img/radio.png');
+    background-position: 15px 0px;
+    cursor: pointer;
+}
+
+/* 点击初始的checkbox，将新的checkbox关联起来 */
+.radio-img input[type="radio"]:checked + label:BEFORE {
+    content: '';
+    display: block;
+    line-height: 15px;
+    vertical-align: middle;
+    background-position: 15px 15px;
+}
+
+.radio-img-disabled label {
+    color: #333 !important;
+}
+
+.radio-img-disabled label:BEFORE {
+    background-position: 0px 0px;
+}
+
+.radio-img-disabled input[type="radio"]:checked + label:BEFORE {
+    background-position: 0px 15px;
+}
+
+.x-form-display-field {
+    margin-bottom: 12px;
+    line-height: 140%;
+}

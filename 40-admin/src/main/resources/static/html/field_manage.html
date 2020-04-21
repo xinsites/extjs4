@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>数据表字段管理->操作说明</title>
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <div class="details-info">
+        1、附件列表的字段不能进行新增，字段数是固定的，只能查看。
+        <br />
+        <br />
+        2、除了附件列表的其他数据库表字段只能新增。
+        <br />
+        <br />
+        3、新增好的字段只能修改字段中文名与字段类型，字段名称不可以修改。
+        <br />
+        <br />
+        4、字段类型的修改有些特殊规定，比如varchar的字段长度只能从小到大的修改；varchar能变成text类型，char能变成varchar与text类型反之不可以。
+        <br />
+        <br />
+        5、下面列出字段类型在修改时，能进行的转换有那些：
+        <p style="padding-left: 20px; line-height: 150%; color: Blue; margin-top: 5px;">
+            a：char、nchar、varchar、nvarchar的字段长度：小->大
+            <br />
+            b：int->decimal
+            <br />
+            c：char->nchar、varchar、nvarchar、varchar(max)、nvarchar(max)、text、ntext
+            <br />
+            d：nchar->varchar、nvarchar、varchar(max)、nvarchar(max)、text、ntext
+            <br />
+            e：varchar->nvarchar、varchar(max)、nvarchar(max)、text、ntext
+            <br />
+            f：nvarchar->varchar(max)、nvarchar(max)、text、ntext
+            <br />
+            g：text->varchar(max)、nvarchar(max)
+            <br />
+            h：ntext->varchar(max)、nvarchar(max)
+            <br />
+            i：varchar(max)->varchar(max)、nvarchar(max)、text、ntext
+            <br />
+            j：nvarchar(max)->varchar(max)、nvarchar(max)、text、ntext
+            <br />
+            <br />
+            注意：<br />
+            1、主表不能从char、nchar、varchar、nvarchar字段转换成varchar(max)、nvarchar(max)、text、ntext字段，主表中的text字段另存一个表；<br />
+            2、修改字段时，如果该表中该字段有为空的数据，只能允许为空，请自行判断(可以人工将该字段为空的数据赋为空值，int型赋0)；<br />
+        </p>
+        6、字段名自动生成条件: 新增字段 + 勾选“自动生成”。
+        <br />
+        <br />
+    </div>
+</body>
+</html>

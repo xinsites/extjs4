@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>XinSite - 404</title>
+	<link th:href="@{/javascript/plugins/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+</head>
+<script type="text/javascript">
+    window.onload = function (ev) {
+        if (typeof window.parent.extBodyUnmask == "function") {
+            window.parent.extBodyUnmask();
+        }
+    }
+</script>
+<body>
+<div class="container-fluid">
+	<div class="page-header"><h1>页面不存在.</h1></div>
+	<div><a href="javascript:" onclick="history.go(-1);" class="btn">返回上一页</a></div>
+</div>
+</body>
+</html>

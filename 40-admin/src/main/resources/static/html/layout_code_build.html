@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>表单布局管理->代码生成</title>
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <div class="details-info">
+        1、栏目执行<a target="_blank" href="html/系统自定义方法.png">系统自定义方法</a>：运行DefineObjectClick(tree，record)需要的代码：
+        <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+            a.生成的代码通用不可以修改，界面同预览界面相同
+            <br />
+            b.design_model.js->请求DefineObjectClick(tree， record)，获取界面js需要的配置参数
+            <br />
+            c.根据Layout_Type值，调用6个js中的入口方法
+            <br />
+            <div style="padding-left: 20px; color: Red; line-height: 200%;">
+                1.单表-单元格编辑：JavaScript\BuildManage\single_cellediting.js
+                <br />
+                2.单表-行编辑：JavaScript\BuildManage\single_rowediting.js
+                <br />
+                3.单表-窗口编辑：JavaScript\BuildManage\single_winediting.js
+                <br />
+                4.单表-选项卡编辑：JavaScript\BuildManage\single_tabediting.js
+                <br />
+                5.多表-窗口编辑：JavaScript\BuildManage\multi_winediting.js
+                <br />
+                6.多表-选项卡编辑：JavaScript\BuildManage\multi_tabediting.js
+            </div>
+            d.所有Ajax请求与AjaxHandlerManage.ashx交互
+            <br />
+            e.点击生成后，在栏目修改页面勾选“栏目执行系统自定义方法”
+            <br />
+        </div>
+        <br />
+        2、栏目执行<a target="_blank" href="html/用户自定义方法.png">用户自定义方法</a>：运行ItemClickOid_对象ID(tree，record)需要的代码：
+        <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+            a.通过生成的代码JavaScript、AjaxHandler、BLL，进行修改变通
+            <br />
+            b.生成的模板文件位置：CodeBuild\model\所有模板文件
+            <br />
+            c.生成后的代码文件位置：CodeBuild\对象主表名\生成的文件
+            <br />
+            c.将生成的文件拷贝复制到相应位置
+            <br />
+            <div style="padding-left: 20px; color: Red; line-height: 200%;">
+                1.design_dynamic.js，拷贝栏目入口方法追加到JavaScript\design_dynamic.js
+                <br />
+                2.生成的JavaScript文件，拷贝到Web\JavaScript\DefineUserManage
+                <br />
+                3.生成的AjaxHandler文件，拷贝到Web\AjaxHandlerBuild
+                <br />
+                4.生成的BLL文件，拷贝到BLL\Design_BLL
+                <br />
+            </div>
+            d.点击生成后，在栏目修改页面去掉“栏目执行系统自定义方法”
+            <br />
+        </div>
+    </div>
+</body>
+</html>

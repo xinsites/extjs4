@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>表单布局管理->代码生成</title>
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <div class="details-info">
+        1、对于主表是窗口编辑、选项卡编辑，或者与主表是1对1关系的表单，需要进行界面配置：
+        <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+            a.窗口属性配置，默认即可，窗口的宽高可以根据打开的预览窗口进行调整
+            <div style="padding-left: 20px; color: Red; line-height: 200%;">
+                窗口属性配置完成后，可进行手动编辑调整
+            </div>
+            b.Form表单属性配置，默认即可
+            <div style="padding-left: 20px; color: Red; line-height: 200%;">
+                Form表单属性配置完成后，可进行手动编辑调整
+            </div>
+            c.表单items生成,目前只能生成1列、2列、3列、4列
+            <br />
+            <div style="padding-left: 20px; color: Red; line-height: 200%;">
+                1列表单：按字段顺序从上到下生成
+                <br />
+                2列表单：按字段顺序及生成类型从上到下生成
+                <br />
+                3列表单：按字段顺序及生成类型从上到下生成
+                <br />
+                4列表单：按字段顺序及生成类型从上到下生成
+                <br />
+                生成后的表单items，可进行手动编辑调整
+                <br />
+                列表中，生成类型可以下拉编辑，字段顺序可以拖动调整
+            </div>
+        </div>
+        <br />
+        2、表单items生成说明如下：
+        <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+            a.生成1列时，生成类型不可编辑，生成后是填充整个窗口
+            <br />
+            b.隐藏域字段都默认按一列生成，界面预览时看不见
+            <br />
+            c.“按比”：字段宽度是整个宽度的生成列数比，下个字段往后排，直到排满后换行
+            <br />
+            d.“独行按比”：字段宽度是整个宽度的生成列数比，下个字段换行
+            <br />
+            e.“独行自定义比”：字段宽度是整个宽度的自定义比，下个字段换行
+            <br />
+            f.“独行自定义宽”：字段宽度是自己定义的宽度，下个字段换行
+            <br />
+            g.“独行填充”：字段宽度填充整个窗口，相当于1列生成时
+            <br />
+        </div>
+        <br />
+        3、当窗口属性配置、Form表单属性配置、表单items生成后，可以点击“界面预览”进行查看：
+        <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+            a.主表是“选项卡编辑”操作类型时，不需要进行窗口属性配置
+            <br />
+            b.与主表是“1对1”关系的界面配置，不需要进行窗口属性配置
+            <br />
+            c.与主表是“1对1”关系的窗口属性配置，依赖与主表的窗口属性配置
+        </div>
+        <br />
+        4、在生成列数大于1时，固化操作的作用：
+        <div style="padding-left: 20px; line-height: 200%; color: Blue; margin-top: 5px;">
+            a.选择了一个值，在点击列“生成类型”时，默认是固化选择的值，不必再下拉选择了
+            <br />
+            b.没有设置固化值，在点击列“生成类型”时，下拉选择一种类型
+        </div>
+    </div>
+</body>
+</html>

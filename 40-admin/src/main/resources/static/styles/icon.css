@@ -1,0 +1,95 @@
+﻿.icon_upload{background-image: url(../images/fam/image_add.png) !important;}
+.icon_expand{background-image: url(../images/fam/expand-all.gif) !important;}
+.icon_collapse{background-image: url(../images/fam/collapse-all.gif) !important;}
+.icon_add{background-image: url(../images/icons16/add.png) !important;}
+.icon_edit{background-image: url(../images/icons/edit.gif) !important;}
+.icon_delete{background-image: url(../images/icons/delete.gif) !important;}
+.icon_app{ background-image: url(../images/icons/application.png) !important;}
+.icon_excel{ background-image: url(../images/icons/exp_excel.png) !important;}
+.icon_search{background-image: url(../images/icons/icon_search1.gif) !important;}
+.icon_setup{background-image: url(../images/icons/set_config.png) !important;}
+.icon_help{ background-image: url(../images/icons/help.png) !important;}
+.icon_save{background-image: url(../images/icons/save.png) !important;}
+.icon_reset{background-image: url(../images/icons/resetIcon.gif) !important;}
+.icon_test{background-image: url(../images/icons/setuseridicon.png) !important;}
+.icon_useradd{ background-image: url(../images/icons/user_add.png) !important;}
+.icon_write{background-image: url(../images/icons/Icons_331.png) !important;}
+.icon_preview{ background-image: url(../images/icons/search.png) !important;}
+.icon_build{ background-image: url(../images/icons/script_edit.png) !important;}
+.icon_explain{ background-image: url(../images/icons/Icon_bz.gif) !important;}
+.icon_code_build{ background-image: url(../images/icons/document_copy.png) !important;}
+.icon_refresh{background-image: url(../images/icons/refresh.png) !important;}
+.icon_options{ background-image: url(../images/icons/options.png) !important;}
+.icon_leader{ background-image: url(../images/icons/leader.gif) !important;  }
+.icon_personer{ background-image: url(../images/icons/personer.gif) !important;  }
+.icon_member{ background-image: url(../images/icons/member.gif) !important;}
+.icon_clear{ background-image: url(../images/icons/clear.gif) !important;}
+.icon_code_pub{ background-image: url(../images/icons/code_pub.gif) !important;}
+.icon_code_com{ background-image: url(../images/icons/file_child.png) !important;}
+.icon_combo_test{ background-image: url(../images/icons/text_list_bullets.png) !important;}
+.icon_resetpwd{ background-image: url(../images/icons/lock_edit.png) !important;}
+.icon_permissionn{ background-image: url(../images/icons/icon_xtgl3.gif) !important;}
+.icon_item_fun{ background-image: url(../images/icons/item_fun.png) !important;}
+.icon_list{background-image: url(../images/icons/totalicon.png) !important;}
+.icon_dataper{background-image: url(../images/icons/Icons_323.png) !important;}
+.icon_more{background-image: url(../images/icons/icon_more.png) !important;}
+.icon_task_group{background-image: url(../images/icons/text_list_bullets.png) !important;}
+.icon_task_branch{background-image: url(../images/icons/infomenu/arrow_merge.png) !important;}
+.icon_options{ background-image: url(../images/icons/options.png) !important;}
+.icon_item_setup{background-image: url(../images/icons/cog_go.png) !important;}
+.icon_temp_save{ background-image: url(../images/icons/save_labled_go.png) !important;left:5px; top: 2px; }
+.icon_save{ background-image: url(../images/icons/save.png) !important;left:5px;}
+.icon_reset{background-image: url(../images/icons/icon_khgl1.gif) !important; left:5px;}
+.icon_flow_chart{background-image: url(../images/icons/Icons_334.png) !important;left:3px;}
+.icon_collection{background-image: url(../images/icons/star.png) !important;left:5px;}
+.icon_flow_save{background-image: url(../images/icons/action_check.png) !important;left:5px;}
+.icon_return{background-image: url(../images/icons/arrow_undo.png) !important;left:5px;}
+.icon_return_pre{background-image: url(../images/icons/back.gif) !important;left:5px;}
+.icon_apply_user{background-image: url(../images/fam/user_edit.png) !important;left:5px;}
+.icon_return_file{background-image: url(../images/icons/Icons_331.png) !important;left:5px;}
+.icon_batch{background-image: url(../images/icons/plsh.gif) !important;}
+.icon_copy{ background-image: url(../images/icons/copy.png) !important;}
+.icon_other{ background-image: url(../images/icons/wrench_orange.png) !important;}
+.icon_form{background-image: url(../images/icons/form.png) !important;}
+.icon_preview{background-image: url(../images/icons/zoom.png) !important;}
+.icon_apply_mod{background-image: url(../images/icons/icon_khgl1.gif) !important;}
+.icon_home{background-image: url(../images/icons/house.png) !important;}
+.icon_user_add{ background-image: url(../images/icons/user_add.png) !important;}
+.icon_inport{background-image: url(../images/icons/dataInport.gif) !important;}
+.icon_close_tab{background-image: url(../images/icons/action_delete.png) !important;}
+.icon_close_all{background-image: url(../images/icons/Icon_08.png) !important;}
+.icon_recycle{background-image: url(../images/icons/recycle.gif) !important;}
+.icon_recycle_del{background-image: url(../images/icons/recycle_del.gif) !important;}
+.icon_user_kickout{background-image: url(../images/icons/member_icon.gif) !important;}
+.icon_data_import{background-image: url(../images/icons/data_import.gif) !important;}
+.icon_database_export{background-image: url(../images/icons/database_export.gif) !important;}
+.icon_upload_add {background-image: url(../images/icons/add.gif) !important;}
+.icon_upload_delete {background-image: url(../images/icons/delete.gif) !important;}
+.icon_upload_up {background-image: url(../images/icons16/upload.gif) !important;}
+.icon_upload_trash {background-image: url(../images/icons/trash.gif) !important;}
+.icon_upload_cancel {background-image: url(../images/icons/cancel.gif) !important;}
+.icon_upload_attach {background-image: url(../images/icons/attach.png) !important; left:2px;}
+.icon_build_dict{ background-image: url(../images/icons/script_go.png) !important;}
+.icon_build_batis{ background-image: url(../images/icons/database_export.gif) !important;}
+.icon_table_batis{ background-image: url(../images/icons/icon_khgl2.gif) !important;}
+.icon_mybatis_source{ background-image: url(../images/icons/database.gif) !important;}
+.icon_select_source{ background-image: url(../images/icons/code_pub.gif) !important;}
+
+.x-action-col-cell img.infotop {
+    width: 8px; height: 16px; overflow:hidden;
+    background:transparent url(../images/icons/infomenu/arrow_up2.png) no-repeat -5px 0px;
+}
+
+.x-action-col-cell img.infofile {
+    width: 13px; height: 16px;
+    background:transparent url(../images/icons/infomenu/xgfj.gif) no-repeat -4px 3px;
+}
+
+
+.x-action-col-cell img.file_word{background: url(../images/icons/word2.gif) no-repeat 0px 1px;width: 14px; height: 16px;}
+.x-action-col-cell img.file_excel{background: url(../images/icons/execl.gif) no-repeat 0px 1px;width: 14px; height: 16px;}
+.x-action-col-cell img.file_music{background: url(../images/icons/music-green.gif) no-repeat 0px 1px;width: 14px; height: 16px;}
+.x-action-col-cell img.file_video{background: url(../images/icons/video.png) no-repeat 0px 1px;width: 16px; height: 16px;}
+.x-action-col-cell img.file_image{background: url(../images/icons/images_r2.png) no-repeat 0px 3px;width: 10px; height: 16px;}
+.x-action-col-cell img.file_text{background: url(../images/icons/attach.png) no-repeat -1px 1px;width: 15px; height: 16px;overflow:hidden;}
+

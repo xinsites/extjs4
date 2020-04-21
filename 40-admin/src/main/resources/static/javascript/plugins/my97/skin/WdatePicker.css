@@ -1,0 +1,29 @@
+.Wdate{
+	cursor:pointer;
+	background:#fff url(datePicker.gif) no-repeat right;
+}
+
+.Wdate1{
+	cursor:pointer;
+	background-position: calc(100% + 88px) 0px;
+	background-repeat:no-repeat;
+}
+
+.Wdate2{
+	cursor:pointer;
+	background-position: right -88px bottom 0px;
+	background-repeat:no-repeat;
+}
+
+.dropIcon
+{
+	border:#999 1px solid;
+	height:20px;
+	cursor:pointer;
+	background:#fff url(selectBtn.gif) no-repeat right;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

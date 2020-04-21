@@ -1,0 +1,657 @@
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    border: 5px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .1) inset;
+}
+
+::-webkit-scrollbar-thumb {
+    min-height: 20px;
+    background-clip: content-box;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, .1) inset;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+body {
+    margin: auto;
+    width: 100%;
+    z-index: 1000;
+    font-size: 13px;
+    overflow-x: hidden;
+    font-family: '宋体', Simsun;
+}
+
+.top_line1 {
+    height: 1px;
+    overflow: hidden;
+}
+
+.top_line2 {
+    height: 1px;
+    overflow: hidden;
+}
+
+.vhead {
+    float: left;
+    width: 1755px;
+    height: 60px;
+    overflow: hidden;
+    border-bottom: solid 0px #8995BD;
+}
+
+.SystemTitle {
+    font-size: 2.5em;
+    filter: glow(color=black, strength=5);
+    letter-spacing: 1px;
+    font-family: '黑体';
+    font-weight: bolder;
+    position: absolute;
+    top: 15px;
+    left: 35px;
+}
+
+.SystemTitle {
+    color: #15428B;
+    text-shadow: 1px 1px 5px #fff;
+    filter: progid:DXImageTransform.Microsoft.MotionBlur(strength=5, direction=145);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.user-header-img {
+    width: 24px;
+    height: 24px;
+}
+
+.user-header-img img {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.msg .x-box-mc {
+    font-size: 14px;
+}
+
+#msg-div {
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    width: 400px;
+    margin-left: -200px;
+    z-index: 200000;
+}
+
+#msg-div .msg {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #F6F6F6;
+    border: 2px solid #ccc;
+    margin-top: 2px;
+    padding: 10px 15px;
+    color: #555;
+}
+
+#msg-div .msg h3 {
+    margin: 0 0 8px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#msg-div .msg p {
+    margin: 0;
+}
+
+.TreeCls1 {
+    background-color: #FFFFFF;
+    color: #000;
+    width: 100%;
+    margin-top: 0px;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    vertical-align: top;
+    background-repeat: repeat-x;
+    background-image: url(../../images/bj_1.gif);
+    background-position: bottom;
+}
+
+.ExtCls1 {
+    padding: 2px;
+    margin: 0px;
+}
+
+.ExtCls2 {
+    padding: 2px 2px 2px 0px;
+    margin: 0px;
+}
+
+.ExtCls3 {
+    padding: 2px 0px 2px 2px;
+    margin: 0px;
+}
+
+.ExtCls4 {
+    padding: 2px 2px 0px 2px;
+    margin: 0px;
+}
+
+.ExtCls5 {
+    padding: 5px;
+    margin: 0px;
+}
+
+.ExtCls6 {
+    padding: 0px 5px 5px 5px;
+    margin: 0px;
+}
+
+.ExtCls7 {
+    padding: 5px 5px 5px 0px;
+    margin: 0px;
+}
+
+.ExtCls8 {
+    padding: 4px 0px 4px 0px;
+    margin: 0px;
+}
+
+.ExtCls9 {
+    padding: 4px;
+    margin: 0px;
+}
+
+.ExtCls10 {
+    padding: 4px 4px 4px 0px;
+    margin: 0px;
+}
+
+.ExtCls11 {
+    padding-left: 5px;
+    margin: 0px;
+}
+
+.ExtCls12 {
+    padding-top: 18px;
+}
+
+.ExtCls13 {
+    margin-right: 5px;
+}
+
+.header_rigth_btn_cls {
+    border-radius: 0px;
+    border-width: 0px;
+}
+
+.details-info {
+    margin: 0px;
+    padding: 15px;
+    line-height: 22px;
+    border: 1px dotted #999;
+    color: #555;
+    font-size: 14px;
+    background: #f9f9f9;
+}
+
+.red {
+    color: Red;
+}
+
+.blue {
+    color: Blue;
+}
+
+.green {
+    color: Green;
+}
+
+/*合计行样式*/
+.x-grid-row-summary .x-grid-cell-inner {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.mt-boundlist-item { /*下拉多选，选择全部样式*/
+    padding: 0 6px;
+    line-height: 22px;
+    cursor: pointer;
+    cursor: hand;
+    position: relative;
+    /*allow hover in IE on empty items*/
+    zoom: 1;
+    border-width: 1px;
+    border-style: dotted;
+    border-color: white;
+}
+
+.treenode-disable span, .treenode-disable a, .treenode-disable input, .x-boundlist-list-ct .disabled { /*TreeNode不可用状态*/
+    opacity: 0.5;
+    z-index: 100;
+}
+
+/*下拉列表复选框样式*/
+.x-boundlist-item input, .x-boundlist-item span, .mt-boundlist-item input, .mt-boundlist-item span {
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.x-menu-item .x-menu-item-link img {
+    vertical-align: top;
+    top: 3px;
+}
+
+/*表格控件开始*/
+.x-grid-row-over .x-grid-cell-inner {
+    font-weight: bold;
+}
+
+.x-action-col-cell img {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.x-action-col-cell img.buy-col {
+    background-image: url(../../images/fam/accept.png);
+}
+
+.x-action-col-cell img.alert-col {
+    background-image: url(../../images/fam/error.png);
+}
+
+.x-ie6 .x-action-col-cell img.buy-col {
+    background-image: url(../../images/fam/accept.gif);
+}
+
+.x-ie6.x-action-col-cell img.alert-col {
+    background-image: url(../../images/fam/error.gif);
+}
+
+.x-ie6 .x-action-col-cell img {
+    position: relative;
+    top: -1px;
+}
+
+/*表格控件结束*/
+
+.x-grid-td1, .tdValign {
+    vertical-align: middle;
+    line-height: 110%;
+}
+
+/*自定义Grid行高*/
+.custom-grid-row-height td {
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+.custom-grid-row-bold td {
+    height: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.grid-row-24-normal td {
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.grid-row-cancel td {
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+    color: #666;
+    font-weight: normal;
+}
+
+.grid-row-24-bold td {
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/*自定义GridTree行高*/
+.custom-grid-tree-row-height td {
+    padding-top: 0px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+}
+
+/*不能使用的特定义行*/
+.disabled-grid-tree-row-style td {
+    padding-top: 0px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: bold;
+    color: Red;
+}
+
+/*自定义TreePanel行高*/
+.custom-tree-panel-row-height div {
+    margin-top: 4px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+}
+
+/*配置查询字段TreePanel行高*/
+.configsearch_tree_panel_row_height div {
+    height: 26px;
+    line-height: 26px;
+    font-size: 13px;
+}
+
+/*配置数据对象TreePanel行高*/
+.object_tree_panel_row_height div span {
+    height: 20px;
+    line-height: 22px;
+    padding-top: 5px;
+}
+
+.object_tree_panel_row_height img, .tree_panel_row_height18 img {
+    position: relative;
+    top: 3px;
+}
+
+/*操作日志类型TreePanel行高*/
+.log_tree_panel_row_height div span {
+    height: 28px;
+    line-height: 30px;
+    padding-top: 5px;
+}
+
+.log_tree_panel_row_height img {
+    position: relative;
+    top: 6px;
+}
+
+.tree_panel_row_height18 div span {
+    height: 18px;
+    line-height: 18px;
+    position: relative;
+    top: 1px;
+}
+
+/*配置数据对象TreePanel行高*/
+.column_tree_panel_row_height div span {
+    height: 18px;
+    line-height: 20px;
+    padding-top: 5px;
+}
+
+.column_tree_panel_row_height img input {
+    margin-top: 1px;
+}
+
+/*.configsearch_tree_panel_row_height div img
+{
+	display:none;
+}*/
+
+.noicon {
+    display: none;
+}
+
+/*Grid rowbody 指定行体样式*/
+.rowbodyColor {
+    height: 40px;
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #CCFFFF;
+}
+
+/*Grid中记录为空时的样式*/
+.x-grid .x-grid-empty {
+    font-size: 15px;
+    margin-top: 150px;
+    text-align: center;
+    font-weight: bold;
+    color: Red;
+}
+
+.empty_parent .x-grid-empty {
+    height: 50px;
+    line-height: 30px;
+    margin: auto 30px;
+    font-family: helvetica,arial,verdana,sans-serif;
+}
+
+.grid_empty_text_parent {
+    position: relative;
+}
+
+.grid_empty_text_parent .x-grid-empty {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    overflow: hidden;
+    line-height: 30px;
+    margin: auto 100px;
+    white-space: nowrap;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: Red;
+    border: 1px dashed #000;
+}
+
+/*下拉列表为空时的样式*/
+.combobox-empty .empty {
+    background: #f9f9f9;
+    line-height: 24px;
+    font-weight: bold;
+    padding: 5px;
+    color: Red;
+}
+
+.empty_parent .empty {
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: Red;
+}
+
+/*Grid中行选择拖动时的样式*/
+.x-view-selector {
+    position: absolute;
+    border: 1px dotted #3399BB;
+}
+
+/*树结点特殊的样式*/
+.important .x-tree-node-text {
+    color: red;
+    font-weight: bold;
+}
+
+.x-tree-node-text .tree-node-action {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: -2px;
+    display: none;
+}
+
+/*选项卡溢出右边加菜单*/
+.list {
+    padding-left: 16px;
+    padding-bottom: 10px;
+}
+
+.list li {
+    list-style: square;
+    padding: 2px;
+}
+
+pre {
+    font-size: 11px;
+}
+
+/*选项卡溢出右边加菜单 end*/
+
+/*table布局 阴影特效*/
+.shadowdiv {
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090, direction=120, strength=4); /*ie*/
+    -moz-box-shadow: 20px 20px 5px black; /*firefox*/
+    -webkit-box-shadow: 20px 20px 5px black; /*safari或chrome*/
+    box-shadow: 5px 5px 5px black; /*opera或ie9*/
+}
+
+.mytextfild {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+/*table布局 阴影特效 end*/
+
+.x-hide {
+    display: none;
+}
+
+/*滑动按钮样式*/
+th {
+    text-align: right;
+    padding: 8px;
+    padding-right: 15px;
+    vertical-align: top;
+    width: 225px;
+}
+
+.css_sized_container .x-toggle-slide-container {
+    width: 250px;
+}
+
+.custom-color label.x-toggle-slide-label-on {
+    background: #83B264;
+    color: #F9FBF7;
+    text-shadow: 0px 0px 2px #346817;
+}
+
+.custom-color label.x-toggle-slide-label-off {
+    background: #C56333;
+    color: #7F1F06;
+    text-shadow: 1px 0px 1px #DD9A78;
+    text-shadow: 1px 1px -1px #D7875F;
+    text-align: right;
+}
+
+/*滑动按钮样式 end*/
+
+/*表单验证*/
+.form-error-state {
+    font-size: 11px;
+    padding-left: 20px;
+    height: 16px;
+    line-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    cursor: default;
+}
+
+.errors-tip .error {
+    font-style: italic;
+}
+
+/*表单验证 end*/
+
+.cellcss01 {
+    padding-left: 2px;
+    padding-right: 2px;
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.x-form-item {
+    margin-top: 1px;
+    vertical-align: top;
+}
+
+.x-form-text, .x-form-trigger-wrap, .x-trigger-noedit {
+    height: 26px;
+}
+
+.x-form-radio, .x-form-checkbox {
+    height: 15px;
+}
+
+/*table布局 阴影特效*/
+.shadowdiv {
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090, direction=120, strength=4); /*ie*/
+    -moz-box-shadow: 20px 20px 5px #8D8D8D; /*firefox*/
+    -webkit-box-shadow: 20px 20px 5px #8D8D8D; /*safari或chrome*/
+    box-shadow: 5px 5px 5px #8D8D8D; /*opera或ie9*/
+}
+
+.form-title {
+    text-align: center;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: top;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-family: 黑体;
+}
+
+.form-sub-title {
+    text-align: left;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: top;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-family: 黑体;
+}
+
+.x-list-plain li {
+    padding-bottom: 5px;
+}
+
+.flow_task_status {
+    position: fixed;
+    z-index: 40000;
+    right: 60px;
+    top: 130px;
+}

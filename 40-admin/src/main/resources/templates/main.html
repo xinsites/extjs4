@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${@Config.getKey('product.productName')}">主页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="xinsite快速开发">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{'/styles/default_top.css?t='+${version}}" rel="stylesheet"/>
+    <link href="styles/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="javascript/extjs4/resources/css/ext-all-neptune.css" rel="stylesheet"/>
+    <link th:href="@{'/styles/ablum.css?t='+${version}}" rel="stylesheet"/>
+    <link th:href="@{'/styles/themes/ext-all-neptune.css?t='+${version}}" rel="stylesheet"/>
+    <link th:href="@{'/javascript/extjs4/ux/css/TabScrollerMenu.css?t='+${version}}" rel="stylesheet"/>
+    <link th:href="@{'/styles/common.css?t='+${version}}" rel="stylesheet"/>
+    <link th:href="@{'/styles/icon.css?t='+${version}}" rel="stylesheet"/>
+
+    <script src="javascript/plugins/encrypt/base64.js"></script>
+    <script src="javascript/plugins/jquery/jquery-1.12.4.min.js"></script>
+    <script src="javascript/plugins/jquery/jquery.cookie.js"></script>
+    <script src="javascript/extjs4/bootstrap.js"></script>
+
+    <script th:src="@{'/javascript/common/constant.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/extjs4/ux/Ext.ux.TabCloseMenu.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/plugins/my97/WdatePicker.js?t='+${version}}"></script>
+    <script src="javascript/plugins/ueditor/ueditor.config.js"></script>
+    <script src="javascript/plugins/ueditor/ueditor.all.min.js"></script>
+    <script src="javascript/plugins/kindeditor/kindeditor-all.js"></script>
+    <script src="javascript/plugins/encrypt/md5.js"></script>
+
+    <script th:src="@{'/javascript/ajax_url.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/common/common.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/common/prototype.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/public.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/default.js?t='+${version}}"></script>
+    <script th:src="@{'/javascript/panel.js?t='+${version}}"></script>
+
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+    <style type="text/css">
+        .x-grid3-row-over .x-grid3-cell-inner {
+            font-weight: bold;
+        }
+
+        .expense-low {
+            background-color: #93de8b;
+        }
+
+        .expense-high {
+            background-color: #e4765c;
+        }
+    </style>
+    <!--[if IE 7]>
+    <style type="text/css">
+        .x-form-field-wrap .x-form-trigger {
+            top: 0px;
+        }
+
+        .x-form-element {
+            padding: 1px 0px 0px 0px;
+        }
+
+        .x-form-item {
+            padding: 0px;
+            margin-bottom: 3px;
+        }
+    </style><![endif]-->
+    <!--[if IE 8]>
+    <style type="text/css">
+        .x-form-field {
+            line-height: 16px;
+            padding: 2px 3px 0px 3px;
+            vertical-align: middle;
+            line-height: 22px;
+        }
+
+        .main-header .navbar-nav > li > a > i {
+            height: 60px;
+            line-height: 60px;
+            vertical-align: middle;
+        }
+    </style><![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            fileUploadType = '[[${fileType}]]';
+            fileUploadSize = '[[${fileMaxSize}]]';
+            defaultPageSize = '[[${pageSize}]]';
+            context_path = '[[${contextPath}]]';
+            window.UEDITOR_CONFIG.serverUrl = context_path + "/ueditor/config";
+            userinfo = Ext.JSON.decode(decodeURIComponent('[[${UserInfo}]]'));
+            userinfo.userId = userinfo.userId + "";//下拉列表出不了值
+            userinfo.roleId = userinfo.roleId + "";
+            userinfo.postId = userinfo.postId + "";
+            $("#user_header_photo").attr("src", userinfo.headPhoto);
+            document.body.oncontextmenu = function () {
+                return false;
+            }
+        });
+
+        Ext.onReady(function () {
+            Ext.getBody().mask('正在加载页面，请稍候！');
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div id="loading-mask" style="">
+</div>
+<div id="loading">
+    <div style="text-align: center; margin: auto; padding-top: 220px; width: 200px; display: none;">
+        <img src="images/extanim64.gif" alt="" style="float: left; position: absolute; top: 5px;
+                width: 49px; height: 49px;"/>
+        <span style="float: left; margin-left: 10px; height: 50px; line-height: 50px; color: Red;
+                font-size: 14px;">页面加载中……</span></div>
+</div>
+<div id="vOuter" style="display: none;">
+    <div id="top_left">
+        <div class="vhead">
+            <span id="Label1" class="SystemTitle">XinSite演示系统-<span style="letter-spacing:0px;">Java版</span></span>
+        </div>
+    </div>
+    <div id="top_right" class="fixed">
+        <div class="main-header">
+            <div class="navbar-custom-menu" style="margin-right: 10px;">
+                <ul class="nav navbar-nav">
+                    <!-- 任务 -->
+                    <li onclick="showWaitItem(5);" class="dropdown tasks-menu">
+                        <a href="javascript:void(0);" class="dropdown-toggle" title="任务">
+                            <i style="line-height: 66px;" class="fa fa-flag-o awesome-icon20"></i>
+                            <span id="lblTaskCount" class="label label-danger">0</span>
+                        </a></li>
+                    <!-- 通知 -->
+                    <li onclick="showUserNotice();" class="dropdown notifications-menu">
+                        <a href="javascript:void(0);" class="dropdown-toggle" title="通知">
+                            <i style="line-height: 66px;" class="fa fa-bell-o awesome-icon20"></i>
+                            <span id="lblMsgCount" class="label label-warning">0</span>
+                        </a></li>
+                    <!-- 用户面板 -->
+                    <li class="dropdown user user-menu" style="line-height: 64px;">
+                        <a href="javascript:void(0);" onclick="openUserCenter();"
+                           style="padding-left: 18px; padding-right: 20px;"
+                           class="dropdown-toggle" data-toggle="dropdown" title="用户中心">
+                            <img id="user_header_photo" class="user-image"
+                                 onerror="this.src='images/default_avatar3.png'"
+                                 src="images/default_avatar3.png">
+                            <span class="hidden-xs" style="font-weight: normal;"><span
+                                    id="lbl_UserName">[[${UserName}]]</span></span> </a></li>
+                    <li class="dropdown tasks-menu" style="line-height: 66px;"><a href="logout"
+                                                                                  class="dropdown-toggle"
+                                                                                  style="padding-left: 10px; padding-right: 10px;"
+                                                                                  title="安全退出"><i
+                            class="fa fa-power-off awesome-icon20" style="font-size: 16px;">
+                    </i><i class="fa" style="margin: 2px;line-height: 66px;">退出</i></a></li>
+                    <!-- 帮助文档 -->
+                    <li class="dropdown tasks-menu" style="line-height: 66px; display: none; "><a
+                            href="static/document/说明书.doc"
+                            target="_blank"
+                            class="dropdown-toggle"
+                            style="padding-left: 10px; padding-right: 10px;"
+                            title="帮助文档"><i
+                            class="fa fa-question-circle-o awesome-icon20" style="font-size: 16px;">
+                    </i><i class="fa" style="margin: 2px;">帮助</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="bottom_left" class="footer_bottom" style="text-align: left; padding-left: 5px;">
+        版本：[[${productVersion}]]
+    </div>
+    <div id="bottom_center" class="footer_bottom">
+        <span id="lblBottom" th:utext="${bottom_text}"></span>
+    </div>
+    <div id="online_peoples" class="footer_bottom" style="text-align: right; padding-right: 10px;">
+        QQ群：:43324566
+    </div>
+</div>
+</body>
+</html>

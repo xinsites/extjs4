@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>首页</title>
+    <link th:href="@{/styles/common.css}" rel="stylesheet"/>
+    <link th:href="@{/javascript/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+    <script th:src="@{/javascript/plugins/jquery/jquery.js}"></script>
+    <script th:src="@{/javascript/plugins/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/javascript/plugins/layui/laydate/laydate.js}"></script>
+    <!--第三方统计图start-->
+    <script src="javascript/plugins/highcharts/highcharts.js" type="text/javascript"></script>
+    <script src="javascript/plugins/highcharts/highcharts-more.js" type="text/javascript"></script>
+    <script src="javascript/plugins/highcharts/modules/exporting.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        *{padding:0px;margin:0px;font-size:13px; font-family: '宋体', Simsun;}
+        ul,li,h1,h2,h3,h4,h5,h6,dl,dt,dd{padding:0;margin:0}
+        ul{list-style:none}
+        img{border:none}
+        a{color:#000000;}
+        a:hover{color:#000000;}
+        a:focus{outline:none;-moz-outline:none;color:#000000;}
+        .portal-panel{ position: relative; margin: 0px;padding: 0px;min-height: 65px;height: auto;padding-left: 22px;padding-right: 22px;}
+        .portal-panel .portal-panel-title{padding-top: 10px; font-weight:bold; padding-left:10px; line-height: 45px;font-size: 12px; border-bottom: 1px solid #ccc;color: #666;font-weight: 600;font-size: 14px;}
+        .portal-panel .portal-panel-content{padding:5px;}
+        .portal-panel .portal-panel-row{line-height: 39px; padding-left:10px; border-bottom: 1px solid #ddd;text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+        .portal-panel .portal-panel-row a{overflow: hidden; }
+
+        .task-stat{border-radius:5px;font-family: "Open Sans", sans-serif;display: block;margin: 10px;overflow: hidden;color: #FFFFFF;}
+        .task-stat .visual > i{color: #FFFFFF;opacity: 0.4;filter: alpha(opacity=10);}
+        .task-stat .visual{width: 80px;height: 50px;display: block;float: left;padding-top: 10px;padding-left: 15px;margin-bottom: 18px;font-size: 35px;line-height: 35px;}
+        .task-stat .visual > i{margin-left: -5px;font-size: 60px;line-height: 65px;}
+        .task-stat .details{position: absolute;right: 10px;padding-right: 15px;}
+        .task-stat .details .number{padding-top: 10px;text-align: right;font-size: 32px;line-height: 36px;letter-spacing: -1px;margin-bottom: 0px;font-weight: 300;}
+        .task-stat .details .desc{text-align: right;font-size: 15px;padding-top: 5px;}
+        .task-stat .more{clear: both;display: block;padding: 6px 10px 6px 10px;position: relative;text-transform: uppercase;font-weight: 300;font-size: 10px;opacity: 0.7;filter: alpha(opacity=70);text-decoration:none;color: #FFFFFF;}
+        .task-stat .more:hover{text-decoration: none;opacity: 0.9;filter: alpha(opacity=90);}
+        .task-stat .more > i{display: inline-block;margin-top: 0px;float: right;font-size: 15px;}
+
+        .table td{overflow: hidden;white-space:nowrap;text-overflow: ellipsis; max-width:260px;}
+        .portal-date{float: right; padding-right:15px;}
+        .portal-type{ margin-right:5px; }
+        .row {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
+        .notice-tag{font-size: 9pt;color: #fff; padding: 2px 4px; border-radius: 3px; }
+        .notice-level1{background-color: #F39C12}
+        .notice-level2{background-color: #DD4B39}
+    </style>
+
+</head>
+<script type="text/javascript">
+    $(function () {
+        if (parent.location == window.location) window.location = "default.aspx";
+        document.body.oncontextmenu = function () {
+            return false;
+        }
+
+        LoadInterfaceVisit();
+        LoadDepartmentApp();
+
+        $(".table tr:first-child td").css("border-top", "0");
+        $(".table tr:last-child td").css("border-bottom", "1px solid #ddd");
+        $(".portal-panel-row").mouseover(function () {
+            $(this).css("background-color", "#f5f5f5");
+        }).mouseout(function () {
+            $(this).css("background-color", "#fff");
+        });
+
+    });
+
+    //访问流量图表
+    function LoadInterfaceVisit() {
+        var chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'piecontainer',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                defaultSeriesType: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            exporting: {
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.point.name + '</b>: ' + parseInt(this.percentage) + ' %';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true, //点击切换
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function () {
+                            return '<b>' + this.point.name + '</b>: ' + parseInt(this.percentage) + ' %';
+                        }
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                data: [
+                    ['枢纽楼', 16],
+                    ['IDC中心', 14],
+                    ['端局', 12],
+                    ['模块局', 18],
+                    ['营业厅', 11],
+                    ['办公大楼', 9],
+                    ['C网基站', 20],
+                ]
+            }]
+        });
+    }
+
+    //部门应用图表
+    function LoadDepartmentApp() {
+        $('#container').highcharts({
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+            },
+            yAxis: {
+                title: {
+                    text: '电量（度）'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value + '度'
+                    }
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            tooltip: {
+                crosshairs: true,
+                shared: true
+            },
+            plotOptions: {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#666666',
+                        lineWidth: 1
+                    }
+                }
+            },
+            series: [{
+                name: '预算',
+                marker: {
+                    symbol: 'square'
+                },
+                data: [6.0, 6.9, 9.2, 13.8, 17.5, 20.5, 24.2, 23.6, 18.8, 14.7, 10.7, 2.5]
+
+            }, {
+                name: '实际',
+                marker: {
+                    symbol: 'diamond'
+                },
+                data: [3.5, 4.6, 5.7, 7.7, 10.6, 14.6, 16.8, 17.2, 16.3, 12.3, 8.6, 5.8]
+            }]
+        });
+
+    }
+</script>
+<body>
+<div class="portal-panel">
+    <div class="row">
+        <div class="portal-panel-title">
+            <i class="fa fa-balance-scale"></i>&nbsp;统计指标
+        </div>
+        <div class="portal-panel-content" style="margin-top: 15px; overflow: hidden;">
+            <div class="row">
+                <div style="width: 20%; position: relative; float: left;">
+                    <div class="task-stat" style="background-color: #8775a7;">
+                        <div class="visual">
+                            <i class="fa fa-credit-card"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                8888.00
+                            </div>
+                            <div class="desc">
+                                本周付款额
+                            </div>
+                        </div>
+                        <a class="more" style="background-color: #7c699f;" href="javascript:;">查看更多 <i
+                                class="fa fa-arrow-circle-right">
+                        </i></a>
+                    </div>
+                </div>
+                <div style="width: 20%; position: relative; float: left;">
+                    <div class="task-stat" style="background-color: #3598dc;">
+                        <div class="visual">
+                            <i class="fa fa-jpy"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                568897.00
+                            </div>
+                            <div class="desc">
+                                利润总额
+                            </div>
+                        </div>
+                        <a class="more" style="background-color: #258fd7;" href="javascript:;">查看更多 <i
+                                class="fa fa-arrow-circle-right">
+                        </i></a>
+                    </div>
+                </div>
+                <div style="width: 20%; position: relative; float: left;">
+                    <div class="task-stat" style="background-color: #578ebe;">
+                        <div class="visual">
+                            <i class="fa fa-server"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                256
+                            </div>
+                            <div class="desc">
+                                最新商机量
+                            </div>
+                        </div>
+                        <a class="more" style="background-color: #4884b8;" href="javascript:;">查看更多 <i
+                                class="fa fa-arrow-circle-right">
+                        </i></a>
+                    </div>
+                </div>
+                <div style="width: 20%; position: relative; float: left;">
+                    <div class="task-stat" style="background-color: #e35b5a;">
+                        <div class="visual">
+                            <i class="fa fa-venus-double"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                245
+                            </div>
+                            <div class="desc">
+                                最新客户量
+                            </div>
+                        </div>
+                        <a class="more" style="background-color: #e04a49;" href="javascript:;">查看更多 <i
+                                class="fa fa-arrow-circle-right">
+                        </i></a>
+                    </div>
+                </div>
+                <div style="width: 20%; position: relative; float: left;">
+                    <div class="task-stat" style="background-color: #44b6ae;">
+                        <div class="visual">
+                            <i class="fa fa-map-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                66
+                            </div>
+                            <div class="desc">
+                                新签订单量
+                            </div>
+                        </div>
+                        <a class="more" style="background-color: #3ea7a0;" href="javascript:;">查看更多 <i
+                                class="fa fa-arrow-circle-right">
+                        </i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="overflow: hidden; margin-bottom: 10px;">
+        <div style="width: 50%; float: left;">
+            <div class="portal-panel-title">
+                <i class="fa fa-flag-o"></i>&nbsp;待办任务（Top 5）
+            </div>
+            <div class="portal-panel-content portal-panel-content-hover" style="overflow: hidden;
+                    padding-top: 15px; padding-left: 30px; padding-right: 50px;">
+                <div class="portal-panel-row" style="font-weight: bold;">
+                    <a href="javascript:void(0)" style="text-decoration: none;">[审批]&nbsp;&nbsp;老李的请假条</a>
+                    <label class="portal-date">
+                        2016-05-25</label>
+                </div>
+                <div class="portal-panel-row">
+                    <a href="javascript:void(0)" style="text-decoration: none;">[审批]&nbsp;&nbsp;陈日天的转岗申请单</a>
+                    <label class="portal-date">
+                        2016-04-01</label>
+                </div>
+                <div class="portal-panel-row" style="font-weight: bold;">
+                    <a href="javascript:void(0)" style="text-decoration: none;">[工作]&nbsp;&nbsp;回访千事汇通项目负责人</a>
+                    <label class="portal-date">
+                        2015-09-11</label>
+                </div>
+                <div class="portal-panel-row" style="font-weight: bold;">
+                    <a href="javascript:void(0)" style="text-decoration: none;">[工作]&nbsp;&nbsp;联系宋卡公司财务支付二期尾款</a>
+                    <label class="portal-date">
+                        2015-02-19</label>
+                </div>
+                <div class="portal-panel-row">
+                    <a href="javascript:void(0)" style="text-decoration: none;">[审批]&nbsp;&nbsp;刘能的借支申请单</a>
+                    <label class="portal-date">
+                        2015-02-26</label>
+                </div>
+            </div>
+        </div>
+        <div style="width: 50%; float: left;">
+            <div class="portal-panel-title">
+                <i class="fa fa-bell-o"></i>&nbsp;公告/通知（Top 5）
+            </div>
+            <div class="portal-panel-content" style="overflow: hidden; padding-top: 15px; padding-left: 30px;
+                    padding-right: 20px;">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr style="font-weight: bold;">
+                        <td style="width: 120px;white-space:nowrap;">
+                            <span class="portal-type">[通知]</span>2018-06-07
+                        </td>
+                        <td style="width: 34px;">
+                            <span class="notice-tag notice-level1">重要</span>
+                        </td>
+                        <td title="盖章办在行政备案">
+                            关于员工加班各种规定的通知 <a href="javascript:void(0)" target="_blank"><i class="fa fa-paperclip">
+                        </i></a>
+                        </td>
+                        <td style="width: 50px;">
+                            <a href="javascript:void(0)"><span class="btn btn-default" style="padding: 2px 5px;
+                                        font-size: 9pt;"><i class="fa fa-search"></i>查看 </span></a>
+                        </td>
+                    </tr>
+                    <tr style="font-weight: bold;">
+                        <td>
+                            <span class="portal-type">[通知]</span>2018-06-06
+                        </td>
+                        <td>
+                            <span class="notice-tag notice-level2">紧急</span>
+                        </td>
+                        <td title="">
+                            关于早退处罚的通知 <a href="javascript:void(0)" target="_blank"></a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)"><span class="btn btn-default" style="padding: 2px 5px;
+                                        font-size: 9pt;"><i class="fa fa-search"></i>查看</span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="portal-type">[公告]</span>2018-06-05
+                        </td>
+                        <td>
+                            <span class="notice-tag notice-level2">紧急</span>
+                        </td>
+                        <td title="">
+                            关于“高筑墙，广积粮，缓称王”的通知 <a href="javascript:void(0)" target="_blank"><i class="fa fa-paperclip">
+                        </i></a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)"><span class="btn btn-default" style="padding: 2px 5px;
+                                        font-size: 9pt;"><i class="fa fa-search"></i>查看</span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="portal-type">[通知]</span>2018-06-01
+                        </td>
+                        <td>
+                            <span class="notice-tag notice-level1">重要</span>
+                        </td>
+                        <td title="通知其使用人员。">
+                            账务管理系统软件试运行阶段规定 <a href="javascript:void(0)" target="_blank"></a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)"><span class="btn btn-default" style="padding: 2px 5px;
+                                        font-size: 9pt;"><i class="fa fa-search"></i>查看</span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="portal-type">[公告]</span>2018-06-01
+                        </td>
+                        <td>
+                            <span class="notice-tag notice-level1">重要</span>
+                        </td>
+                        <td title="">
+                            关于开展2018年干部述职报告会的通知 <a href="javascript:void(0)" target="_blank"><i class="fa fa-paperclip">
+                        </i></a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)"><span class="btn btn-default" style="padding: 2px 5px;
+                                        font-size: 9pt;"><i class="fa fa-search"></i>查看 </span></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="overflow: hidden; margin-bottom: 50px; padding-bottom: 30px; height: 460px;">
+        <div style="width: 50%; float: left;">
+            <div class="portal-panel-title">
+                <i class="fa fa-pie-chart"></i>&nbsp;局站分类型总用电占比
+            </div>
+            <div class="portal-panel-content" style="margin-top: 10px; overflow: hidden;">
+                <div id="piecontainer">
+                </div>
+            </div>
+        </div>
+        <div style="width: 50%; float: left;">
+            <div class="portal-panel-title">
+                <i class="fa fa-line-chart"></i>&nbsp;预算与实际用电量对比
+            </div>
+            <div class="portal-panel-content" style="margin-top: 10px; overflow: hidden;">
+                <div id="container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

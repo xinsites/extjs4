@@ -1,0 +1,22 @@
+import com.xinsite.common.uitls.lang.NumberUtils;
+
+${header}
+public enum enum_model {
+${enum_item}
+
+    // 成员变量
+    private String value;
+
+    // 构造方法
+    private enum_model(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public int getId() {
+        return NumberUtils.strToInt(value);
+    }
+}

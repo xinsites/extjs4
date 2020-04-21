@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>主页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        .check-item {
+            margin-right: 6px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .check-item label {
+            line-height: 12px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .check-item input[type="checkbox"] {
+            margin-right: 0px;
+            width: 12px;
+            height: 12px;
+            visibility: hidden;
+        }
+
+        /* 设计新的checkbox，位置 */
+        .check-item label:BEFORE {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            border: 1px solid #3892D3;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        /* 点击初始的checkbox，将新的checkbox关联起来 */
+        .check-item input[type="checkbox"]:checked + label:BEFORE {
+            content: '\2713';
+            display: block;
+            line-height: 12px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bolder;
+            background-color: #3892D3;
+            color: #ffffff;
+        }
+
+        .check-item-disabled label {
+            color: #333 !important;
+        }
+
+        .check-item-disabled label:BEFORE {
+            border: 1px solid #d2d2d2;
+        }
+
+        .check-item-disabled input[type="checkbox"]:checked + label:BEFORE {
+            border: 1px solid #d2d2d2;
+            background-color: #d2d2d2;
+        }
+
+        .check-img {
+            margin-right: 6px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .check-img label {
+            line-height: 15px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .check-img input[type="checkbox"] {
+            margin-right: 0px;
+            width: 15px;
+            height: 15px;
+            visibility: hidden;
+        }
+
+        /* 设计新的checkbox，位置 */
+        .check-img label:BEFORE {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 4px;
+            width: 15px;
+            height: 15px;
+            background-image: url('./styles/themes/ext-neptune/img/checkbox.png');
+            background-position: 15px 0px;
+            cursor: pointer;
+        }
+
+        /* 点击初始的checkbox，将新的checkbox关联起来 */
+        .check-img input[type="checkbox"]:checked + label:BEFORE {
+            content: '';
+            display: block;
+            line-height: 15px;
+            vertical-align: middle;
+            background-position: 15px 15px;
+        }
+
+        .check-img-disabled label {
+            color: #333 !important;
+        }
+
+        .check-img-disabled label:BEFORE {
+            background-position: 0px 0px;
+        }
+
+        .check-img-disabled input[type="checkbox"]:checked + label:BEFORE {
+            background-position: 0px 15px;
+        }
+
+        .radio-item {
+            margin-right: 8px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .radio-item label {
+            line-height: 15px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .radio-item input[type="radio"] {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .radio-item input[type="radio"] + label::before {
+            content: "\a0"; /*不换行空格*/
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: -2px;
+            width: 14px;
+            height: 14px;
+            margin-right: 5px;
+            -webkit-border-radius: 14px;
+            -moz-border-radius: 14px;
+            border-radius: 14px;
+            border: 1px solid #428bca;
+            line-height: 14px;
+            cursor: pointer;
+        }
+
+        .radio-item input[type="radio"]:checked + label::before {
+            width: 6px;
+            height: 6px;
+            background-color: #428bca;
+            background-clip: content-box;
+            padding: 4px;
+        }
+
+        .radio-item-disabled label {
+            color: #333 !important;
+        }
+
+        .radio-item-disabled input[type="radio"] + label::before {
+            border: 1px solid #d2d2d2;
+        }
+
+        .radio-item-disabled input[type="radio"]:checked + label::before {
+            background-color: #d2d2d2;
+        }
+
+        .radio-img {
+            margin-right: 8px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .radio-img label {
+            line-height: 15px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .radio-img input[type="radio"] {
+            margin-right: 0px;
+            width: 15px;
+            height: 15px;
+            visibility: hidden;
+        }
+
+        /* 设计新的checkbox，位置 */
+        .radio-img label:BEFORE {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 4px;
+            width: 15px;
+            height: 15px;
+            background-image: url('./styles/themes/ext-neptune/img/radio.png');
+            background-position: 15px 0px;
+            cursor: pointer;
+        }
+
+        /* 点击初始的checkbox，将新的checkbox关联起来 */
+        .radio-img input[type="radio"]:checked + label:BEFORE {
+            content: '';
+            display: block;
+            line-height: 15px;
+            vertical-align: middle;
+            background-position: 15px 15px;
+        }
+
+        .radio-img-disabled label {
+            color: #333 !important;
+        }
+
+        .radio-img-disabled label:BEFORE {
+            background-position: 0px 0px;
+        }
+
+        .radio-img-disabled input[type="radio"]:checked + label:BEFORE {
+            background-position: 0px 15px;
+        }
+
+    </style>
+
+    <script src="javascript/plugins/jquery/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="styles/ablum.css?t=1">
+</head>
+<script type="text/javascript">
+    $(function () {
+
+    });
+
+    function IEVersion() {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+        var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+        var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+        if (isIE) {
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            if (fIEVersion == 7) {
+                return 7;
+            } else if (fIEVersion == 8) {
+                return 8;
+            } else if (fIEVersion == 9) {
+                return 9;
+            } else if (fIEVersion == 10) {
+                return 10;
+            } else {
+                return 6;//IE版本<=7
+            }
+        } else if (isEdge) {
+            return 'edge';//edge
+        } else if (isIE11) {
+            return 11; //IE11
+        } else {
+            return -1;//不是ie浏览器
+        }
+    }
+</script>
+<body class="gray-bg">
+
+<div unselectable="on" class="x-grid-cell-inner " style="text-align:left;">
+    <label onclick="setItemClickFlag('fun_ids')">
+        <input name="fun_ids" type="checkbox" value="353">新增 </label>
+    <label onclick="setItemClickFlag('fun_ids')"><input
+            name="fun_ids" type="checkbox" value="354">修改 </label>
+    <label onclick="setItemClickFlag('fun_ids')"><input
+            name="fun_ids" type="checkbox" value="355">删除 </label>
+    <label onclick="setItemClickFlag('fun_ids')"><input
+            name="fun_ids" type="checkbox" value="356">排序 </label></div>
+
+<br/>
+<div>
+    <div class="check-item">
+        <input id="item1" type="checkbox"/>
+        <label for="item1">可选</label>
+    </div>
+    <div class="check-item">
+        <input id="item2" type="checkbox" checked/>
+        <label for="item2">可选</label>
+    </div>
+    <div class="check-item check-item-disabled">
+        <input id="item31" type="checkbox" disabled/>
+        <label for="item31">不可选</label>
+    </div>
+    <div class="check-item check-item-disabled">
+        <input id="item3" type="checkbox" checked disabled/>
+        <label for="item3">不可选</label>
+    </div>
+</div>
+<br/>
+<p>图片代替 checkbox </p>
+<div>
+    <div class="check-img">
+        <input id="item4" onclick="alert(22);" type="checkbox"/>
+        <label for="item4">可选</label>
+    </div>
+    <div class="check-img">
+        <input id="item5" type="checkbox" checked/>
+        <label for="item5">可选</label>
+    </div>
+    <div class="check-img check-img-disabled">
+        <input id="item6" onclick="alert(33);" type="checkbox" disabled/>
+        <label for="item6">不可选</label>
+    </div>
+    <div class="check-img check-img-disabled">
+        <input id="item7" type="checkbox" checked disabled/>
+        <label for="item7">不可选</label>
+    </div>
+</div>
+<br/>
+<div>
+    <div class="radio-item">
+        <input id="radio1" name="radio" checked type="radio"/>
+        <label for="radio1">可选</label>
+    </div>
+    <div class="radio-item">
+        <input id="radio2" name="radio" type="radio"/>
+        <label for="radio2">可选</label>
+    </div>
+    <div class="radio-item radio-item-disabled">
+        <input id="radio3" name="radio2" type="radio" disabled/>
+        <label for="radio3">不可选</label>
+    </div>
+    <div class="radio-item radio-item-disabled">
+        <input id="radio43" name="radio2" type="radio" checked disabled/>
+        <label for="radio43">不可选</label>
+    </div>
+</div>
+<br/>
+<p>图片代替 radio </p>
+<div>
+    <div class="radio-img">
+        <input id="radio4" name="radio3" type="radio"/>
+        <label for="radio4">可选</label>
+    </div>
+    <div class="radio-img">
+        <input id="radio5" name="radio3" type="radio" checked/>
+        <label for="radio5">可选</label>
+    </div>
+    <div class="radio-img radio-img-disabled">
+        <input id="radio6" name="radio4" type="radio" disabled/>
+        <label for="radio6">不可选</label>
+    </div>
+    <div class="radio-img radio-img-disabled">
+        <input id="radio7" name="radio4" type="radio" checked disabled/>
+        <label for="radio7">不可选</label>
+    </div>
+</div>
+
+<div class="x-component x-fit-item x-component-default" style="width:600px;">
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+    <div class="cron_run_time">
+        <div>2019-12-09 16:37:37</div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>栏目管理</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+<div class="details-info">
+    <div style="padding-left: 20px; line-height: 220%; color: Blue; margin-top: 10px;">
+        1.栏目页面有查询列表，可以指定列表权限值
+        <br/>
+        2.查询列表可以有数据权限，查询的数据表必须有”dept_id“、”create_uid“、”org_id“等字段，表示创建人部门Id、创建人Id、创建人机构Id,字段名称可以不是这个名称，但在查询时可以自己指定，可在com.xinsite.core.utils.search.PageHelper.addDataPerWhere方法查看
+        <br/>
+        3.如果勾选了”栏目功能“，可以在列表中配置栏目有那些功能，并在页面上按钮是否显示及提交时的权限控制
+        <br/>
+        4.勾选“历史记录”，在新增与修改时的信息都备份下来，以便将来还原。“历史记录”功能必须在生成数据表中有记录
+        <br/>
+        5.勾选“回收站”，在信息列表删除时，信息再回到回收站还是可以还原的。“回收站”功能必须在生成数据表中有记录
+        <br/>
+        6.如果栏目有上传附件功能，还可以配置该栏目独有的附件上传类型，不配置默认可以上传”附件类型“中的所有附件
+        <br/>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+HTML {SCROLLBAR-FACE-COLOR: #DFE8F6;SCROLLBAR-HIGHLIGHT-COLOR: #DFE8F6;SCROLLBAR-ARROW-COLOR: #15428B;SCROLLBAR-TRACK-COLOR: #DEECFD;SCROLLBAR-DARKSHADOW-COLOR: #DEECFD;SCROLLBAR-3DLIGHT-COLOR:#99BBE8;SCROLLBAR-SHADOW-COLOR:#99BBE8;}
+
+.footer_bottom {   /*首页底部样式*/  
+    text-align: center; line-height:20px; color:#222;
+}   
+
+/*增加list的radio选择框*/
+.x-grid-cell-inner-radiocolumn {
+  line-height: 0;
+  font-size: 0;
+}
+.x-grid-cell-inner-radiocolumn {
+  padding: 4px 6px 3px 6px;
+}
+.x-grid-no-row-lines .x-grid-row-focused .x-grid-cell-inner-radiocolumn {
+  padding-top: 3px;
+  padding-bottom: 2px;
+}
+.x-grid-radiocolumn {
+  width: 13px;
+  height: 13px;
+  background: url(img/radio.gif) 0 0 no-repeat;
+}
+.x-item-disabled .x-grid-radiocolumn {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+}
+.x-grid-radiocolumn-checked {
+  background-position: 0 -13px;
+}
+/*增加list的radio选择框*/
+

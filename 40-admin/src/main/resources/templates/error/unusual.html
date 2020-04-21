@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XinSite - 业务出错</title>
+    <link th:href="@{/javascript/plugins/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="page-header"><h3>操作异常</h3></div>
+    <div class="page-header"><h3>[[${error_msg}]]</h3></div>
+    <div><a href="javascript:" onclick="history.go(-1);" class="btn">返回上一页</a></div>
+</div>
+</body>
+</html>
