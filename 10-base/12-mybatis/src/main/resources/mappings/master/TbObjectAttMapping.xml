@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinsite.mybatis.datasource.master.mapper.TbObjectAttMapper">
+    <resultMap id="tbObjectAttMap" type="com.xinsite.mybatis.datasource.master.entity.TbObjectAtt">
+        <id column="attach_id" property="attachId"/>
+		<result column="item_id" property="itemId"/>
+		<result column="idleaf" property="idleaf"/>
+		<result column="serialcode" property="serialcode"/>
+		<result column="attach_name" property="attachName"/>
+		<result column="attach_add" property="attachAdd"/>
+		<result column="attach_size" property="attachSize"/>
+		<result column="attach_type" property="attachType"/>
+		<result column="create_time" property="createTime"/>
+		<result column="attach_state" property="attachState"/>
+
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		attach_id,item_id,idleaf,serialcode,attach_name,attach_add,attach_size,attach_type,create_time,attach_state
+	</sql>
+
+	<select id="getTbObjectAttList" resultMap="tbObjectAttMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_object_att
+		<where>
+			1=1
+			<if test="attachId != null">
+				and attach_id = #{attachId}
+			</if>
+			<if test="itemId != null">
+				and item_id = #{itemId}
+			</if>
+			<if test="idleaf != null">
+				and idleaf = #{idleaf}
+			</if>
+			<if test="serialcode != null">
+				and serialcode = #{serialcode}
+			</if>
+			<if test="attachName != null">
+				and attach_name = #{attachName}
+			</if>
+			<if test="attachAdd != null">
+				and attach_add = #{attachAdd}
+			</if>
+			<if test="attachSize != null">
+				and attach_size = #{attachSize}
+			</if>
+			<if test="attachType != null">
+				and attach_type = #{attachType}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="attachState != null">
+				and attach_state = #{attachState}
+			</if>
+		</where>
+
+    </select>
+
+	<select id="getTbObjectAttById" resultMap="tbObjectAttMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_object_att where attach_id = #{attachId}
+
+	</select>
+
+	<delete id="deleteTbObjectAttById" parameterType="java.lang.Integer">
+		update tb_object_att set del = 0
+		where attach_id = #{attachId}
+
+	</delete>
+
+    <update id="updateTbObjectAttById" parameterType="com.xinsite.mybatis.datasource.master.entity.TbObjectAtt">
+		update tb_object_att
+		<set>
+			attach_id=#{attachId},
+			item_id=#{itemId},
+			idleaf=#{idleaf},
+			serialcode=#{serialcode},
+			attach_name=#{attachName},
+			attach_add=#{attachAdd},
+			attach_size=#{attachSize},
+			attach_type=#{attachType},
+			create_time=#{createTime},
+			attach_state=#{attachState}
+		</set>
+		where attach_id = #{attachId}
+
+	</update>
+
+    <insert id="addTbObjectAtt" parameterType="com.xinsite.mybatis.datasource.master.entity.TbObjectAtt" useGeneratedKeys="true" keyProperty="attach_id">
+		insert into tb_object_att(attach_id,item_id,idleaf,serialcode,attach_name,attach_add,attach_size,attach_type,create_time,attach_state)
+		values (#{attachId},#{itemId},#{idleaf},#{serialcode},#{attachName},#{attachAdd},#{attachSize},#{attachType},#{createTime},#{attachState})
+
+	</insert>
+
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinsite.mybatis.datasource.master.mapper.TbNoticeReadMapper">
+    <resultMap id="tbNoticeReadMap" type="com.xinsite.mybatis.datasource.master.entity.TbNoticeRead">
+        <id column="idleaf" property="idleaf"/>
+		<result column="user_id" property="userId"/>
+		<result column="isread" property="isread"/>
+
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		idleaf,user_id,isread
+	</sql>
+
+	<select id="getTbNoticeReadList" resultMap="tbNoticeReadMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_notice_read
+		<where>
+			1=1
+			<if test="idleaf != null">
+				and idleaf = #{idleaf}
+			</if>
+			<if test="userId != null">
+				and user_id = #{userId}
+			</if>
+			<if test="isread != null">
+				and isread = #{isread}
+			</if>
+		</where>
+
+    </select>
+
+	<select id="getTbNoticeReadById" resultMap="tbNoticeReadMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_notice_read where idleaf = #{idleaf} and user_id = #{userId}
+
+	</select>
+
+	<delete id="deleteTbNoticeReadById" parameterType="java.lang.Integer">
+		update tb_notice_read set del = 0
+		where idleaf = #{idleaf} and user_id = #{userId}
+
+	</delete>
+
+    <update id="updateTbNoticeReadById" parameterType="com.xinsite.mybatis.datasource.master.entity.TbNoticeRead">
+		update tb_notice_read
+		<set>
+			idleaf=#{idleaf},
+			user_id=#{userId},
+			isread=#{isread}
+		</set>
+		where idleaf = #{idleaf} and user_id = #{userId}
+
+	</update>
+
+    <insert id="addTbNoticeRead" parameterType="com.xinsite.mybatis.datasource.master.entity.TbNoticeRead" useGeneratedKeys="true" keyProperty="idleaf">
+		insert into tb_notice_read(idleaf,user_id,isread)
+		values (#{idleaf},#{userId},#{isread})
+
+	</insert>
+
+</mapper>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinsite.mybatis.datasource.master.mapper.SysUserOnlineMapper">
+    <resultMap id="sysUserOnlineMap" type="com.xinsite.mybatis.datasource.master.entity.SysUserOnline">
+        <id column="sessionId" property="sessionId"/>
+		<result column="user_id" property="userId"/>
+		<result column="dept_name" property="deptName"/>
+		<result column="ip_address" property="ipAddress"/>
+		<result column="login_location" property="loginLocation"/>
+		<result column="browser" property="browser"/>
+		<result column="version" property="version"/>
+		<result column="device" property="device"/>
+		<result column="status" property="status"/>
+		<result column="start_timestamp" property="startTimestamp"/>
+		<result column="last_access_time" property="lastAccessTime"/>
+		<result column="time_out" property="timeOut"/>
+
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		sessionId,user_id,dept_name,ip_address,login_location,browser,version,device,status,start_timestamp,last_access_time,time_out
+	</sql>
+
+	<select id="getSysUserOnlineList" resultMap="sysUserOnlineMap">
+		select
+		<include refid="Base_Column_List"/>
+		from sys_user_online
+		<where>
+			1=1
+			<if test="sessionId != null">
+				and sessionId = #{sessionId}
+			</if>
+			<if test="userId != null">
+				and user_id = #{userId}
+			</if>
+			<if test="deptName != null">
+				and dept_name = #{deptName}
+			</if>
+			<if test="ipAddress != null">
+				and ip_address = #{ipAddress}
+			</if>
+			<if test="loginLocation != null">
+				and login_location = #{loginLocation}
+			</if>
+			<if test="browser != null">
+				and browser = #{browser}
+			</if>
+			<if test="version != null">
+				and version = #{version}
+			</if>
+			<if test="device != null">
+				and device = #{device}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="startTimestamp != null">
+				and start_timestamp = #{startTimestamp}
+			</if>
+			<if test="lastAccessTime != null">
+				and last_access_time = #{lastAccessTime}
+			</if>
+			<if test="timeOut != null">
+				and time_out = #{timeOut}
+			</if>
+		</where>
+
+    </select>
+
+	<select id="getSysUserOnlineById" resultMap="sysUserOnlineMap">
+		select
+		<include refid="Base_Column_List"/>
+		from sys_user_online where sessionId = #{sessionId}
+
+	</select>
+
+	<delete id="deleteSysUserOnlineById" parameterType="java.lang.String">
+		delete from sys_user_online where sessionId = #{sessionId}
+	</delete>
+
+	<delete id="batchDeleteOnline">
+		delete from sys_user_online where last_access_time <![CDATA[ <= ]]> #{lastAccessTime}
+	</delete>
+
+    <update id="updateSysUserOnlineById" parameterType="com.xinsite.mybatis.datasource.master.entity.SysUserOnline">
+		update sys_user_online
+		<set>
+			sessionId=#{sessionId},
+			user_id=#{userId},
+			dept_name=#{deptName},
+			ip_address=#{ipAddress},
+			login_location=#{loginLocation},
+			browser=#{browser},
+			version=#{version},
+			device=#{device},
+			status=#{status},
+			start_timestamp=#{startTimestamp},
+			last_access_time=#{lastAccessTime},
+			time_out=#{timeOut}
+		</set>
+		where sessionId = #{sessionId}
+
+	</update>
+
+    <insert id="addSysUserOnline" parameterType="com.xinsite.mybatis.datasource.master.entity.SysUserOnline" useGeneratedKeys="true" keyProperty="sessionId">
+		insert into sys_user_online(sessionId,user_id,dept_name,ip_address,login_location,browser,version,device,status,start_timestamp,last_access_time,time_out)
+		values (#{sessionId},#{userId},#{deptName},#{ipAddress},#{loginLocation},#{browser},#{version},#{device},#{status},#{startTimestamp},#{lastAccessTime},#{timeOut})
+
+	</insert>
+
+	<insert id="saveSysUserOnline" parameterType="com.xinsite.mybatis.datasource.master.entity.SysUserOnline">
+		replace into sys_user_online(sessionId, user_id, dept_name, ip_address, login_location, browser,version, device, status, start_timestamp, last_access_time, time_out)
+		values (#{sessionId}, #{userId}, #{deptName}, #{ipAddress}, #{loginLocation}, #{browser},#{version}, #{device}, #{status}, #{startTimestamp}, #{lastAccessTime}, #{timeOut})
+	</insert>
+</mapper>

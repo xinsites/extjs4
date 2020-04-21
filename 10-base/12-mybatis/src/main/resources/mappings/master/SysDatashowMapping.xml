@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinsite.mybatis.datasource.master.mapper.SysDatashowMapper">
+    <resultMap id="sysDatashowMap" type="com.xinsite.mybatis.datasource.master.entity.SysDatashow">
+        <id column="id" property="id"/>
+		<result column="data_type" property="dataType"/>
+		<result column="data_key" property="dataKey"/>
+		<result column="data_id" property="dataId"/>
+		<result column="disabled" property="disabled"/>
+		<result column="isshow" property="isshow"/>
+
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		id,data_type,data_key,data_id,disabled,isshow
+	</sql>
+
+	<select id="getSysDatashowList" resultMap="sysDatashowMap">
+		select
+		<include refid="Base_Column_List"/>
+		from sys_datashow
+		<where>
+			1=1
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="dataType != null">
+				and data_type = #{dataType}
+			</if>
+			<if test="dataKey != null">
+				and data_key = #{dataKey}
+			</if>
+			<if test="dataId != null">
+				and data_id = #{dataId}
+			</if>
+			<if test="disabled != null">
+				and disabled = #{disabled}
+			</if>
+			<if test="isshow != null">
+				and isshow = #{isshow}
+			</if>
+		</where>
+
+    </select>
+
+	<select id="getSysDatashowById" resultMap="sysDatashowMap">
+		select
+		<include refid="Base_Column_List"/>
+		from sys_datashow where id = #{id}
+
+	</select>
+
+	<delete id="deleteSysDatashowById" parameterType="java.lang.Integer">
+		update sys_datashow set del = 0
+		where id = #{id}
+
+	</delete>
+
+    <update id="updateSysDatashowById" parameterType="com.xinsite.mybatis.datasource.master.entity.SysDatashow">
+		update sys_datashow
+		<set>
+			id=#{id},
+			data_type=#{dataType},
+			data_key=#{dataKey},
+			data_id=#{dataId},
+			disabled=#{disabled},
+			isshow=#{isshow}
+		</set>
+		where id = #{id}
+
+	</update>
+
+    <insert id="addSysDatashow" parameterType="com.xinsite.mybatis.datasource.master.entity.SysDatashow" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_datashow(id,data_type,data_key,data_id,disabled,isshow)
+		values (#{id},#{dataType},#{dataKey},#{dataId},#{disabled},#{isshow})
+
+	</insert>
+
+</mapper>

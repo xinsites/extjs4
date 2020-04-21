@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinsite.mybatis.datasource.master.mapper.TbNoticeMapper">
+    <resultMap id="tbNoticeMap" type="com.xinsite.mybatis.datasource.master.entity.TbNotice">
+        <id column="idleaf" property="idleaf"/>
+		<result column="title" property="title"/>
+		<result column="serialcode" property="serialcode"/>
+		<result column="position" property="position"/>
+		<result column="position_time" property="positionTime"/>
+		<result column="create_time" property="createTime"/>
+		<result column="modify_time" property="modifyTime"/>
+		<result column="create_uid" property="createUid"/>
+		<result column="modify_uid" property="modifyUid"/>
+		<result column="item_id" property="itemId"/>
+		<result column="org_id" property="orgId"/>
+		<result column="dept_id" property="deptId"/>
+		<result column="isdel" property="isdel"/>
+		<result column="grade" property="grade"/>
+		<result column="type" property="type"/>
+		<result column="fb_date" property="fbDate"/>
+		<result column="content" property="content"/>
+		<result column="view_count" property="viewCount"/>
+
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		idleaf,title,serialcode,position,position_time,create_time,modify_time,create_uid,modify_uid,item_id,org_id,dept_id,isdel,grade,type,fb_date,content,view_count
+	</sql>
+
+	<select id="getTbNoticeList" resultMap="tbNoticeMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_notice
+		<where>
+			1=1
+			<if test="idleaf != null">
+				and idleaf = #{idleaf}
+			</if>
+			<if test="title != null">
+				and title = #{title}
+			</if>
+			<if test="serialcode != null">
+				and serialcode = #{serialcode}
+			</if>
+			<if test="position != null">
+				and position = #{position}
+			</if>
+			<if test="positionTime != null">
+				and position_time = #{positionTime}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="modifyTime != null">
+				and modify_time = #{modifyTime}
+			</if>
+			<if test="createUid != null">
+				and create_uid = #{createUid}
+			</if>
+			<if test="modifyUid != null">
+				and modify_uid = #{modifyUid}
+			</if>
+			<if test="itemId != null">
+				and item_id = #{itemId}
+			</if>
+			<if test="orgId != null">
+				and org_id = #{orgId}
+			</if>
+			<if test="deptId != null">
+				and dept_id = #{deptId}
+			</if>
+			<if test="isdel != null">
+				and isdel = #{isdel}
+			</if>
+			<if test="grade != null">
+				and grade = #{grade}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="fbDate != null">
+				and fb_date = #{fbDate}
+			</if>
+			<if test="content != null">
+				and content = #{content}
+			</if>
+			<if test="viewCount != null">
+				and view_count = #{viewCount}
+			</if>
+		</where>
+
+    </select>
+
+	<select id="getTbNoticeById" resultMap="tbNoticeMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_notice where idleaf = #{idleaf}
+
+	</select>
+
+	<delete id="deleteTbNoticeById" parameterType="java.lang.Integer">
+		update tb_notice set del = 0
+		where idleaf = #{idleaf}
+
+	</delete>
+
+    <update id="updateTbNoticeById" parameterType="com.xinsite.mybatis.datasource.master.entity.TbNotice">
+		update tb_notice
+		<set>
+			idleaf=#{idleaf},
+			title=#{title},
+			serialcode=#{serialcode},
+			position=#{position},
+			position_time=#{positionTime},
+			create_time=#{createTime},
+			modify_time=#{modifyTime},
+			create_uid=#{createUid},
+			modify_uid=#{modifyUid},
+			item_id=#{itemId},
+			org_id=#{orgId},
+			dept_id=#{deptId},
+			isdel=#{isdel},
+			grade=#{grade},
+			type=#{type},
+			fb_date=#{fbDate},
+			content=#{content},
+			view_count=#{viewCount}
+		</set>
+		where idleaf = #{idleaf}
+
+	</update>
+
+    <insert id="addTbNotice" parameterType="com.xinsite.mybatis.datasource.master.entity.TbNotice" useGeneratedKeys="true" keyProperty="idleaf">
+		insert into tb_notice(idleaf,title,serialcode,position,position_time,create_time,modify_time,create_uid,modify_uid,item_id,org_id,dept_id,isdel,grade,type,fb_date,content,view_count)
+		values (#{idleaf},#{title},#{serialcode},#{position},#{positionTime},#{createTime},#{modifyTime},#{createUid},#{modifyUid},#{itemId},#{orgId},#{deptId},#{isdel},#{grade},#{type},#{fbDate},#{content},#{viewCount})
+
+	</insert>
+
+</mapper>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//testMybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinsite.mybatis.datasource.master.mapper.SysUserMapper">
+    <resultMap id="sysUserMap" type="com.xinsite.mybatis.datasource.master.entity.SysUser">
+        <id column="user_id" property="userId"/>
+		<result column="user_name" property="userName"/>
+		<result column="login_name" property="loginName"/>
+		<result column="pwd_salt" property="pwdSalt"/>
+		<result column="password" property="password"/>
+		<result column="user_sex" property="userSex"/>
+		<result column="birthday" property="birthday"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<result column="workphone" property="workphone"/>
+		<result column="subtelephone" property="subtelephone"/>
+		<result column="head_photo" property="headPhoto"/>
+		<result column="oicq" property="oicq"/>
+		<result column="wechat" property="wechat"/>
+		<result column="user_state" property="userState"/>
+		<result column="remark" property="remark"/>
+		<result column="org_id" property="orgId"/>
+		<result column="role_id" property="roleId"/>
+		<result column="dept_id" property="deptId"/>
+		<result column="post_id" property="postId"/>
+		<result column="serialcode" property="serialcode"/>
+		<result column="create_time" property="createTime"/>
+		<result column="modify_time" property="modifyTime"/>
+		<result column="isdel" property="isdel"/>
+		<result column="issys" property="issys"/>
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		user_id,user_name,login_name,pwd_salt,password,user_sex,birthday,email,phone,workphone,subtelephone,head_photo,oicq,wechat,user_state,remark,org_id,role_id,dept_id,post_id,serialcode,create_time,modify_time,isdel,issys
+	</sql>
+
+	<select id="getSysUserList" resultMap="sysUserMap">
+		select
+		<include refid="Base_Column_List"/>
+		from sys_user
+		<where>
+			1=1
+			<if test="userId != null">
+				and user_id = #{userId}
+			</if>
+			<if test="userName != null">
+				and user_name = #{userName}
+			</if>
+			<if test="loginName != null">
+				and login_name = #{loginName}
+			</if>
+			<if test="pwdSalt != null">
+				and pwd_salt = #{pwdSalt}
+			</if>
+			<if test="password != null">
+				and password = #{password}
+			</if>
+			<if test="userSex != null">
+				and user_sex = #{userSex}
+			</if>
+			<if test="birthday != null">
+				and birthday = #{birthday}
+			</if>
+			<if test="email != null">
+				and email = #{email}
+			</if>
+			<if test="phone != null">
+				and phone = #{phone}
+			</if>
+			<if test="workphone != null">
+				and workphone = #{workphone}
+			</if>
+			<if test="subtelephone != null">
+				and subtelephone = #{subtelephone}
+			</if>
+			<if test="headPhoto != null">
+				and head_photo = #{headPhoto}
+			</if>
+			<if test="oicq != null">
+				and oicq = #{oicq}
+			</if>
+			<if test="wechat != null">
+				and wechat = #{wechat}
+			</if>
+			<if test="userState != null">
+				and user_state = #{userState}
+			</if>
+			<if test="remark != null">
+				and remark = #{remark}
+			</if>
+			<if test="orgId != null">
+				and org_id = #{orgId}
+			</if>
+			<if test="roleId != null">
+				and role_id = #{roleId}
+			</if>
+			<if test="deptId != null">
+				and dept_id = #{deptId}
+			</if>
+			<if test="postId != null">
+				and post_id = #{postId}
+			</if>
+			<if test="serialcode != null">
+				and serialcode = #{serialcode}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="modifyTime != null">
+				and modify_time = #{modifyTime}
+			</if>
+			<if test="isdel != null">
+				and isdel = #{isdel}
+			</if>
+			<if test="issys != null">
+				and issys = #{issys}
+			</if>
+		</where>
+    </select>
+
+	<select id="getSysUserById" resultMap="sysUserMap">
+		select
+		<include refid="Base_Column_List"/>
+		from sys_user where user_id = #{userId}
+	</select>
+
+	<delete id="deleteSysUserById" parameterType="java.lang.Integer">
+		update sys_user set del = 0
+		where user_id = #{userId}
+	</delete>
+
+    <update id="updateSysUserById" parameterType="com.xinsite.mybatis.datasource.master.entity.SysUser">
+		update sys_user
+		<set>
+			user_id=#{userId},
+			user_name=#{userName},
+			login_name=#{loginName},
+			pwd_salt=#{pwdSalt},
+			password=#{password},
+			user_sex=#{userSex},
+			birthday=#{birthday},
+			email=#{email},
+			phone=#{phone},
+			workphone=#{workphone},
+			subtelephone=#{subtelephone},
+			head_photo=#{headPhoto},
+			oicq=#{oicq},
+			wechat=#{wechat},
+			user_state=#{userState},
+			remark=#{remark},
+			org_id=#{orgId},
+			role_id=#{roleId},
+			dept_id=#{deptId},
+			post_id=#{postId},
+			serialcode=#{serialcode},
+			create_time=#{createTime},
+			modify_time=#{modifyTime},
+			isdel=#{isdel},
+			issys=#{issys}
+		</set>
+		where user_id = #{userId}
+	</update>
+
+    <insert id="addSysUser" parameterType="com.xinsite.mybatis.datasource.master.entity.SysUser" useGeneratedKeys="true" keyProperty="user_id">
+		insert into sys_user(user_id,user_name,login_name,pwd_salt,password,user_sex,birthday,email,phone,workphone,subtelephone,head_photo,oicq,wechat,user_state,remark,org_id,role_id,dept_id,post_id,serialcode,create_time,modify_time,isdel,issys)
+		values (#{userId},#{userName},#{loginName},#{pwdSalt},#{password},#{userSex},#{birthday},#{email},#{phone},#{workphone},#{subtelephone},#{headPhoto},#{oicq},#{wechat},#{userState},#{remark},#{orgId},#{roleId},#{deptId},#{postId},#{serialcode},#{createTime},#{modifyTime},#{isdel},#{issys})
+	</insert>
+
+</mapper>
