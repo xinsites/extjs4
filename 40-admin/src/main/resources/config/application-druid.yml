@@ -9,7 +9,7 @@ spring:
                 #driverClassName: com.mysql.cj.jdbc.Driver
                 url: jdbc:mysql://127.0.0.1:3306/db_xinsite_release?useUnicode=true&characterEncoding=utf-8&serverTimezone=CTT&zeroDateTimeBehavior=convertToNull&useSSL=false
                 username: root
-                password: mysql57
+                password: root
             # 从库数据源
             viceone:
                 # 从数据源开关/默认关闭
@@ -17,14 +17,14 @@ spring:
                 #driverClassName: com.mysql.cj.jdbc.Driver
                 url: jdbc:mysql://127.0.0.1:3306/db_xinsite_demo?useUnicode=true&characterEncoding=utf-8&serverTimezone=CTT&zeroDateTimeBehavior=convertToNull&useSSL=false
                 username: root
-                password: mysql57
+                password: root
             # 从库数据源sqlserver
             sqlserver:
                 enabled: true
                 #driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
                 url: jdbc:sqlserver://LAPTOP-ss3zxx;DatabaseName=db_xinsite_sqlserver
                 username: sa
-                password: sa2008
+                password: sa
             # 从库数据源oracle
             oracle:
                 enabled: false
