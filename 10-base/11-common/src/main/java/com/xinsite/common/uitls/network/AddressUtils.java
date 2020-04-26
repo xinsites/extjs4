@@ -13,29 +13,37 @@ import org.slf4j.LoggerFactory;
 public class AddressUtils {
     private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);
 
-    public static final String IP_URL = "http://ip.taobao.com/service/getIpInfo.php";
-
     public static String getRealAddressByIP(String ip) {
-        String address = "无法获知";
-
-        // 内网不查询
         if (IpUtils.isLocalAddr(ip)) {
             return "内网IP";
         }
+        String address;
         if (Global.getBoolean("config.is_enabled")) {
-            String rspStr = HttpUtils.sendPost(IP_URL, "ip=" + ip);
-            if (StringUtils.isEmpty(rspStr)) {
-                //log.error("获取地理位置异常 {}", ip);
-                return address;
-            }
-            JSONObject obj;
+            address = AddressUtils.getAddressByTaoBao(ip);
+        } else {
+            return "XX XX";
+        }
+        if (StringUtils.isEmpty(address)) return "无法获知";
+        return address;
+    }
+
+    /**
+     * 地址查询：淘宝API接口
+     */
+    public static String getAddressByTaoBao(String ip) {
+        String address = StringUtils.EMPTY;
+        String rspStr = HttpUtils.sendPost("http://ip.taobao.com/service/getIpInfo.php?ip=" + ip);
+        if (StringUtils.isNotEmpty(rspStr)) {
             try {
-                obj = JSON.unmarshal(rspStr, JSONObject.class);
-                JSONObject data = obj.getObj("data");
-                String region = data.getStr("region");
-                String city = data.getStr("city");
-                address = region + " " + city;
-                if (region.equals(city)) address = region;
+                JSONObject obj = JSON.unmarshal(rspStr, JSONObject.class);
+                if (obj.getInt("code") == 0) {
+                    JSONObject data = obj.getObj("data");
+                    String region = data.getStr("region");
+                    if (StringUtils.isEmpty(region)) region = "XX";
+                    String city = data.getStr("city");
+                    if (region.equals(city)) address = region;
+                    else address = region + " " + city;
+                }
             } catch (Exception e) {
                 log.error("获取地理位置异常 {}", ip);
             }

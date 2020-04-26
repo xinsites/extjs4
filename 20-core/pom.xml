@@ -11,7 +11,6 @@
     <modelVersion>4.0.0</modelVersion>
     <name>20-core</name>
     <artifactId>20-core</artifactId>
-    <packaging>jar</packaging>
 
     <description>业务逻辑模块</description>
     <dependencies>
@@ -31,6 +30,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 生成war包，可以排除内置tomcat容器-->
+            <!--<exclusions>-->
+            <!--<exclusion>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
 
         <!-- SpringBoot 拦截器 -->
@@ -44,26 +50,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
+
         <!-- Shiro使用Srping框架 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
         </dependency>
+
         <!-- Shiro使用EhCache缓存框架 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
         </dependency>
-        <!--&lt;!&ndash;Shiro核心框架 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.shiro</groupId>-->
-            <!--<artifactId>shiro-core</artifactId>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; thymeleaf模板引擎和shiro框架的整合 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.github.theborakompanioni</groupId>-->
-            <!--<artifactId>thymeleaf-extras-shiro</artifactId>-->
-        <!--</dependency>-->
 
         <!-- 解析客户端操作系统、浏览器等 -->
         <dependency>

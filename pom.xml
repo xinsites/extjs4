@@ -438,20 +438,20 @@
     </build>
 
     <!--Maven镜像仓库配置，如果maven的setting.xml已配置可去除-->
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>nexus-aliyun</id>-->
-    <!--<name>Nexusaliyun</name>-->
-    <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
-    <!--<layout>default</layout>-->
-    <!--&lt;!&ndash;是否开启发布版构件下载&ndash;&gt;-->
-    <!--<releases>-->
-    <!--<enabled>true</enabled>-->
-    <!--</releases>-->
-    <!--&lt;!&ndash;是否开启快照版构件下载&ndash;&gt;-->
-    <!--<snapshots>-->
-    <!--<enabled>false</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--</repositories>-->
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexusaliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <!--是否开启发布版构件下载-->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!--是否开启快照版构件下载-->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

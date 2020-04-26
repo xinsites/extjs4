@@ -26,31 +26,6 @@
             <artifactId>20-core</artifactId>
         </dependency>
 
-        <!-- 引入SpringMVC支持 web 支持-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <!-- 排除内置容器，排除内置容器导出成war包可以让外部容器运行spring-boot项目-->
-            <!--<exclusions>-->
-            <!--<exclusion>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-            <!--</exclusion>-->
-            <!--</exclusions>-->
-        </dependency>
-        <!--使用jsp文件,Springboot打war包-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--用于编译jsp-->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <!--<scope>provided</scope>-->
-        </dependency>
         <!--视图模板使用thymeleaf-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -66,24 +41,5 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-
-        <!-- 直接读取webapp下页面 -->
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/webapp</directory>-->
-                <!--&lt;!&ndash;注意此次必须要放在此目录下才能被访问到 &ndash;&gt;-->
-                <!--<targetPath>META-INF/resources</targetPath>-->
-                <!--<includes>-->
-                    <!--<include>**/**</include>-->
-                <!--</includes>-->
-            <!--</resource>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources</directory>-->
-                <!--<filtering>true</filtering>-->
-                <!--<includes>-->
-                    <!--<include>**/*</include>-->
-                <!--</includes>-->
-            <!--</resource>-->
-        <!--</resources>-->
     </build>
 </project>

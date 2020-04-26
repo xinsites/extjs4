@@ -11,7 +11,6 @@
     </parent>
     <name>11-common</name>
     <artifactId>11-common</artifactId>
-    <packaging>jar</packaging>
 
     <description>通用工具类</description>
     <dependencies>

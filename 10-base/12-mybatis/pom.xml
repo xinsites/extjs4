@@ -11,7 +11,6 @@
     <modelVersion>4.0.0</modelVersion>
     <name>12-mybatis</name>
     <artifactId>12-mybatis</artifactId>
-    <packaging>jar</packaging>
 
     <description>数据访问模块</description>
     <dependencies>
