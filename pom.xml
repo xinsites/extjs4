@@ -50,7 +50,7 @@
         <activation.version>1.1.1</activation.version>
         <jmimemagic.version>0.1.5</jmimemagic.version>
         <zxing.version>3.3.2</zxing.version>
-        <httpcomponents.version>4.5.6</httpcomponents.version>
+        <httpcomponents.version>4.5.13</httpcomponents.version>
         <thumbnailator.version>0.4.8</thumbnailator.version>
         <blade-patchca.version>1.1.0</blade-patchca.version>
         <ant.version>1.9.7</ant.version>
